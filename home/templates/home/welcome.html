@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% load tz %}
+
+{% block content %}
+	<h1>Welcome to SmartNotes!</h1>
+	<!--Timezone tag effectively sets localtime to EST. If we convert today to localtime, we have the time displayed in EST! -->
+	{% timezone "US/Eastern" %}
+	<p>Today is {{ today|localtime }} EST</p>
+	{% endtimezone %}
+	<a href="{% url 'notes.list' %}" class="btn btn-primary">Check out these smart notes!</a>
+{% endblock %}
